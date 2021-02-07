@@ -3,10 +3,12 @@
 # create new project
     1. creat the project folder in /Sites
     2. cd into the project folder
-    3. git init
+    3. mkdir gitExample
+    4. git init - initialize an empty git repo
 
 # create or update a file
     1. creat a file with touch or echo
+    2. git status - shows info (branch, if there are commits, tracked and untracked files)
     2. git add . or -A or (the file name)
     3. git commit -m "specific thing that was done"
 
