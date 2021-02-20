@@ -42,3 +42,23 @@
     3. in terminal, navigate to /sites
     4. git clone (github URL)
     5. cd into new folder created by gitclone
+
+# fatal: refusing to merge unrelated histories
+    1. occurs when two unrelated projects are merged 
+    2. You have cloned a project and, somehow, the .git directory got deleted or corrupted. This leads Git to be unaware of your local history and will, therefore, cause it to throw this error when you try to push to or pull from the remote repository.
+    3. You have created a new repository, added a few commits to it, and now you are trying to pull from a remote repository that already has some commits of its own. Git will also throw the error in this case, since it has no idea how the two projects are related.
+    4. Solution
+The error is resolved by toggling the allow-unrelated-histories switch. After a git pull or git merge command, add the following tag:
+
+git pull origin master --allow-unrelated-histories
+
+# fatal: origin does not appear to be a Git repository
+    1. By default, a Git repository is not associated with a remote repository. If you try to push changes to a remote repository without first specifying its location, you’ll encounter the “fatal: ‘origin’ does not appear to be a git repository” error.
+    2. The git init command creates a new Git repository. This command only initializes a folder as a Git repository. It does not link a repository to a remote repository.
+    3. The “fatal: ‘origin’ does not appear to be a git repository” error occurs when you set up a new repository and try to commit code without first instructing Git on where the code should be pushed.
+    4. To fix this error, we need to manually tell Git where the remote version of our repository exists. Do this using the git remote add command:
+
+git remote add origin https://github.com/r83wheeler/"repoName".git
+
+This command tells Git the remote called “origin” should be associated with a particular URL. Git now knows where the remote version of our repository exists.
+
